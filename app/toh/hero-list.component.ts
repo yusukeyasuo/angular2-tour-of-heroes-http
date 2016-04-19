@@ -18,15 +18,14 @@ export class HeroListComponent implements OnInit {
 
   getHeroes() {
     this._heroService.getHeroes()
-                     .subscribe(
+                     .then(
                        heroes => this.heroes = heroes,
                        error =>  this.errorMessage = <any>error);
   }
-
   addHero (name: string) {
     if (!name) {return;}
     this._heroService.addHero(name)
-                     .subscribe(
+                     .then(
                        hero  => this.heroes.push(hero),
                        error =>  this.errorMessage = <any>error);
   }
